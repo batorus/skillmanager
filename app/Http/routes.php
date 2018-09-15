@@ -18,3 +18,8 @@ Route::get('/', function () {
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
+
+
+Route::get('/skills', 'SkillController@indexAction');
+Route::post('/skill', 'SkillController@storeAction');
+Route::delete('/skill/{skill}', 'SkillController@destroyAction');

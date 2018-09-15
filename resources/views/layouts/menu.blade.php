@@ -8,7 +8,7 @@
         <ul class="treeview-menu">
 
              <li class="">
-
+                <a href="#">
                   <i class="fa fa-book"></i>                       
                     <span>Patients</span>
                     
@@ -16,14 +16,14 @@
             </li>    
             
              <li>
-
+               <a href="#">
                   <i class="fa fa-book"></i>   
                   <span>Medicine</span>          
                 </a>
               </li> 
               
              <li>
-
+                <a href="#">
                   <i class="fa fa-book"></i>   
                   <span>Consultations</span>          
                 </a>
