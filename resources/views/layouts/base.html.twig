@@ -1,0 +1,32 @@
+{% extends "MedicalsystemBundle:layout:layoutLTE.html.twig" %}
+
+{% if page_title is not defined %}
+    {% set page_title= 'Medical system' %}
+{% endif %}
+
+{#{% set path_homepage= path('dpdc_point_de_controle_ajouter')  %}#}
+
+{% set homepage_title= 'Medical system' %}
+
+{% block menu %}
+    {% include "MedicalsystemBundle:layout:menu.html.twig" %}
+{% endblock %}
+
+{% block body %}
+    {{ parent() }}
+
+    {% block stylesheets %}
+        {{ parent() }}
+
+{#        <link href="{{ asset('bundles/dpdc/css/dpdc-base.css') }}" rel="stylesheet" />#}
+    {% endblock %}	
+
+    <div id="loader" class="container">
+        <img src="{{ asset('bundles/medicalsystem/img/loader.gif') }}" alt="Wait"/>
+    </div>
+
+{% endblock %}
+
+{#{% block javascripts %}
+    {{parent()}}
+{% endblock %}#}
