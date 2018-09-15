@@ -14,6 +14,7 @@ class SkillRepository
     public function forUser(User $user)
     {
         return $user->skills()
+                    ->where('enabled', 1)
                     ->orderBy('created_at', 'asc')
                     ->get();
     }

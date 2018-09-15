@@ -58,7 +58,14 @@
                                 </td>
 
                                 <td>
-                                    <!-- TODO: Delete Button -->
+                                     <form action="{{ url('skill/'.$skill->id) }}" method="POST">
+                                        {{ csrf_field() }}
+
+
+                                        <button type="submit" id="delete-task-{{ $skill->id }}" class="btn btn-danger">
+                                            <i class="fa fa-btn fa-trash"></i>Delete
+                                        </button>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach

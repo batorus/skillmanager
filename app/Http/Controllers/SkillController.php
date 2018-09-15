@@ -40,4 +40,14 @@ class SkillController extends Controller
         return redirect('/skills');
     }
     
+    public function destroyAction(Request $request, \App\Skill $skill)
+    {
+        //$skill->update(['enabled' => 0]);
+        //dd($skill);
+        $skill->find(1)->update(['enabled' => 0]);
+        
+        
+        return redirect('/skills');
+    }
+    
 }
