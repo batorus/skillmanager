@@ -20,21 +20,27 @@ class SkillController extends Controller
     public function indexAction(Request $request)
     {
         
-        return view('skills.index', [
-            'skills' => $this->skills->forUser($request->user()),
-        ]);
+        return view('skills.index', 
+                [
+                    'skills' => $this->skills->forUser($request->user()),
+                    "levels" => \App\Level::all(),
+                    "domains" =>  \App\Domain::all()
+                ]);
     }
     
     public function storeAction(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required|max:255',
+            'date_recorded' => 'required|max:255',
         ]);
         
-        //dd($request->user());
+       /// dd($request->level);
 
         $request->user()->skills()->create([
-               'name' => $request->name,
+               'date_recorded' => $request->date_recorded,
+               'domain_id' => $request->domain,
+               'level_id' => $request->level,
+               'enabled' =>1
            ]);
 
         return redirect('/skills');

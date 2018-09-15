@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Skill extends Model
 {
-    protected $fillable = ['date_recorded'];
+    protected $fillable = ['date_recorded','level_id','domain_id','enabled'];
     
     public function user()
     {

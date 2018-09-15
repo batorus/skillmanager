@@ -1,7 +1,5 @@
 @extends('layouts.layoutLTE')
 
-
-
 @section('menu')
     @include("layouts.menu")
 @endsection
