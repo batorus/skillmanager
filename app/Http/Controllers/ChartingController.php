@@ -22,12 +22,19 @@ class ChartingController extends Controller
          
          $data = $this->skills->forUserAndDomain($user, 3);
          
-         $dates = [];
+         $datas = [];
          foreach($data as $d){
-             
-           $dates[] = array('date'=>$d->date_recorded);
+           $yr = date("Y", strtotime($d->date_recorded)) ; 
+           $mon = date("m", strtotime($d->date_recorded)); 
+           $day = date("d", strtotime($d->date_recorded)); 
+           
+           $datas[] = array('year'=>$yr,
+                            'month'=>$mon,
+                            'day'=>$day,
+                            'level' => $d->level_id
+                           );
          }
-         //dd(json_encode($dates));
+         //dd(json_encode($datas));
         // strtotime("11-09-2018");
 //          $php_date = getdate(strtotime("11-09-2018"));
 //          // or if you want to output a date in year/month/day format:
@@ -43,7 +50,7 @@ class ChartingController extends Controller
         return view('charts.index', 
                 [
                     'skills' => $this->skills->forUserAndDomain($user, 3),
-                    'dates'  => json_encode($dates),
+                    'datas'  => json_encode($datas),
                     'user' => $user
                 ]);
         

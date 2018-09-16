@@ -13,14 +13,15 @@
         $( document ).ready(function() {
 
                 var skills = {!! json_encode($skills->toArray()) !!};
-                var dates= {!! $dates !!};
+                var datas= {!! $datas!!};
                 
                 //d = $.parseJSON(dates);
                 //console.log(dates);
                 
-                $(dates).each(function (i, val) 
+                $(datas).each(function (i, val) 
                 {
-                     console.log(dates[i].date);    
+                     //console.log(dates[i].date); 
+                     //console.log(skills[i].date_recorded); 
 //                                  $("select#nomsociete_pc option[value="+val.id+"]").prop("selected", true).prop('disabled',false);
 //                                 // $("select#typesociete option[value="+val.typesociete+"]").prop("selected", true).prop('disabled',false);
 //                                  $("select#comptablesenior_pc option[value="+val.comptablesenior+"]").prop("selected", true).prop('disabled',false);
@@ -53,9 +54,9 @@
                             title: {
                                 text: 'Level'
                             },
-                             min: 1,
-//                            max: 5,
-  //                          categories: [1, 2, 3, 4, 5],
+                            min: 1,
+                            max: 5,
+                            //categories: ["level 1", "level 2", "level 3", "level 4", "level 5"],
                             allowDecimals: false
                         },
                         tooltip: {
@@ -79,33 +80,22 @@
                         series: [{
                             name: "Evolutie skill UNIX",
                             data: [
-                                [Date.UTC(1970, 10, 25), 0],
-                                [Date.UTC(1970, 11,  6), 0.25],
-                                [Date.UTC(1970, 11, 20), 1.41],
-                                [Date.UTC(1970, 11, 25), 1.64],
-                                [Date.UTC(1971, 0,  4), 1.6],
-                                [Date.UTC(1971, 0, 17), 2.55],
-                                [Date.UTC(1971, 0, 24), 2.62],
-                                [Date.UTC(1971, 1,  4), 2.5],
-                                [Date.UTC(1971, 1, 14), 2.42],
-                                [Date.UTC(1971, 2,  6), 2.74],
-                                [Date.UTC(1971, 2, 14), 2.62],
-                                [Date.UTC(1971, 2, 24), 2.6],
-                                [Date.UTC(1971, 3,  1), 2.81],
-                                [Date.UTC(1971, 3, 11), 2.63],
-                                [Date.UTC(1971, 3, 27), 2.77],
-                                [Date.UTC(1971, 4,  4), 2.68],
-                                [Date.UTC(1971, 4,  9), 2.56],
-                                [Date.UTC(1971, 4, 14), 2.39],
-                                [Date.UTC(1971, 4, 19), 2.3],
-                                [Date.UTC(1971, 5,  4), 2],
-                                [Date.UTC(1971, 5,  9), 1.85],
-                                [Date.UTC(1971, 5, 14), 1.49],
-                                [Date.UTC(1971, 5, 19), 1.27],
-                                [Date.UTC(1971, 5, 24), 0.99],
-                                [Date.UTC(1971, 5, 29), 0.67],
-                                [Date.UTC(1971, 6,  3), 0.18],
-                                [Date.UTC(1971, 6,  4), 0]
+
+                                [Date.UTC(2018, 0, 17), 2.55],
+                                [Date.UTC(2018, 0, 24), 2.62],
+                                [Date.UTC(2018, 1,  4), 2.5],
+                                [Date.UTC(2018, 1, 14), 2.42],
+                                [Date.UTC(2018, 2,  6), 2.74],
+                                [Date.UTC(2018, 2, 14), 2.62],
+                                [Date.UTC(2018, 2, 24), 2.6],
+                                [Date.UTC(2018, 3,  1), 2.81],
+                                [Date.UTC(2018, 3, 11), 2.63],
+                                [Date.UTC(2018, 3, 27), 2.77],
+                                [Date.UTC(datas[0].year, datas[0].month - 1,  datas[0].day), 5],                                
+                                [Date.UTC(2018, 11,  6), 2],
+                                [Date.UTC(2018, 11, 20), 3],
+                                [Date.UTC(2018, 11, 25), 4],
+   
                             ]
                         }]
             });
