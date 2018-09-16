@@ -23,3 +23,6 @@ Route::get('/home', 'HomeController@index');
 Route::get('/skills', 'SkillController@indexAction');
 Route::post('/skill', 'SkillController@storeAction');
 Route::post('/skill/{skill}', 'SkillController@destroyAction');
+
+
+Route::get('/users', 'UserController@indexAction');

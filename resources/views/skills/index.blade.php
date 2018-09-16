@@ -16,7 +16,8 @@
                 <div class="col-sm-3">
                     <input type="text" name="date_recorded" id="skill-date" class="form-control js-datepicker">
                 </div>
-                              
+                
+                <div>&nbsp;</div>                              
                 <label for="skill-domain" class="col-sm-3 control-label">Domain</label>
                 <div class="col-sm-3">                
                     <select name="domain" id="skill-domain" class="form-control">
@@ -27,6 +28,7 @@
                     </select>
                 </div>
                 
+                <div>&nbsp;</div>
                 <label for="skill-level" class="col-sm-3 control-label">Level</label>
                 <div class="col-sm-3">                
                     <select name="level" id="skill-level" class="form-control">
