@@ -52,10 +52,22 @@
         </form>
     </div>
 
+<hr/>
+
  @if (count($skills) > 0)
+ 
         <div class="panel panel-default">
-            <div class="panel-heading">
-                Current Skills
+            <a href='{{ url('skill/'.$user->id) }}'                                  
+               class="btn btn-block btn-warning btn-sm" 
+               style ="width:200px;color:#fff; margin-top:10px;" 
+            >View charts for these skills</a>
+        </div>
+        <div>&nbsp;</div>
+        
+        <div class="panel panel-default">
+            <div class="panel-heading"                
+                 style ="color:#fff;background-color: #8abeb7;padding:10px;margin-top:10px;" >
+                The current skills for {{$user->name}}
             </div>
 
             <div class="panel-body">
