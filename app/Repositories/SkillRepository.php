@@ -14,8 +14,20 @@ class SkillRepository
     public function forUser(User $user)
     {
         return $user->skills()
-                    ->where('enabled', 1)
-                    ->orderBy('created_at', 'asc')
+                    ->select('skills.*', 'domains.name as namedomain', 'levels.name as namelevel')
+                    ->join('domains', 'skills.domain_id', '=', 'domains.id')
+                    ->join('levels', 'skills.level_id', '=', 'levels.id')  
+                    ->where('skills.enabled', 1)                
+                    ->orderBy('skills.created_at', 'asc')
                     ->get();
+        
+//        return  DB::table('skills')
+//                    ->select('skills.*', 'domains.name as namedomain', 'levels.name as namelevel')
+//                    ->join('domains', 'skills.domain_id', '=', 'domains.id')
+//                    ->join('levels', 'skills.level_id', '=', 'levels.id')  
+//                    ->where('skills.enabled', 1)                
+//                    ->orderBy('skills.created_at', 'asc')
+//                    ->get();
     }
+    
 }

@@ -19,7 +19,7 @@ class SkillController extends Controller
     
     public function indexAction(Request $request)
     {
-        
+        //dd($this->skills->forUser($request->user()));
         return view('skills.index', 
                 [
                     'skills' => $this->skills->forUser($request->user()),

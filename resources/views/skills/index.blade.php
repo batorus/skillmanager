@@ -72,10 +72,10 @@
                             <tr>
 
                                 <td class="table-text">
-                                    <div>{{ $skill->domain_id }}</div>
+                                    <div>{{ $skill->namedomain }}</div>
                                 </td>
                                 <td class="table-text">
-                                    <div>{{ $skill->level_id }}</div>
+                                    <div>{{ $skill->namelevel }}</div>
                                 </td>
 
                                 <td>
