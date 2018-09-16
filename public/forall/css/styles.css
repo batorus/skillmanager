@@ -90,7 +90,12 @@ h2 {
 .group-span-filestyle label .glyphicon-folder-open{margin-right: 10px;}
 .redText{color:#FF0000;}
 
-
+#container {
+	min-width: 310px;
+	max-width: 800px;
+	height: 400px;
+	margin: 0 auto
+}
 
 
 
