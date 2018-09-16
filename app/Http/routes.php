@@ -20,8 +20,8 @@ Route::auth();
 Route::get('/home', 'HomeController@index');
 
 
-Route::get('/skills', 'SkillController@indexAction');
-Route::post('/skill', 'SkillController@storeAction');
+Route::get('/skills/{user}', 'SkillController@indexAction');
+Route::post('/skill/{user}', 'SkillController@storeAction');
 Route::post('/skill/{skill}', 'SkillController@destroyAction');
 
 

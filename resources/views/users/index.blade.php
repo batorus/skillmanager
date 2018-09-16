@@ -31,7 +31,9 @@
                                 </td>
 
                                 <td>
-
+                                  <a href='{{url('skills/'.$user->id) }}'>
+                                      Add skill
+                                  </a>
                                 </td>
                             </tr>
                         @endforeach

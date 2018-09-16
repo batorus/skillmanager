@@ -7,7 +7,7 @@
         @include('common.errors')
 
 
-        <form action="{{ url('skill') }}" method="POST" class="form-horizontal">
+        <form action="{{ url('skill/'.$user->id) }}" method="POST" class="form-horizontal">
             {{ csrf_field() }}
 
             <div class="form-group">
@@ -63,6 +63,7 @@
 
                     <!-- Table Headings -->
                     <thead>
+                        <th>User name</th>
                         <th>Skill name</th>
                         <th>Skill level</th>    
                         <th>Date</th>  
@@ -73,7 +74,9 @@
                     <tbody>
                         @foreach ($skills as $skill)
                             <tr>
-
+                                <td class="table-text">
+                                    <div>{{ $skill->username}}</div>
+                                </td>
                                 <td class="table-text">
                                     <div>{{ $skill->namedomain }}</div>
                                 </td>
