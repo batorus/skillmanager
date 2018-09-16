@@ -14,7 +14,7 @@
                 
                 <label for="skill-date" class="col-sm-3 control-label">Date</label>
                 <div class="col-sm-3">
-                    <input type="text" name="date_recorded" id="skill-date" class="form-control">
+                    <input type="text" name="date_recorded" id="skill-date" class="form-control js-datepicker">
                 </div>
                               
                 <label for="skill-domain" class="col-sm-3 control-label">Domain</label>
@@ -62,7 +62,8 @@
                     <!-- Table Headings -->
                     <thead>
                         <th>Skill name</th>
-                        <th>Skill level</th>                      
+                        <th>Skill level</th>    
+                        <th>Date</th>  
                         <th>&nbsp;</th>
                     </thead>
 
@@ -77,7 +78,9 @@
                                 <td class="table-text">
                                     <div>{{ $skill->namelevel }}</div>
                                 </td>
-
+                                <td class="table-text">
+                                    <div>{{ $skill->date_recorded}}</div>
+                                </td>
                                 <td>
                                      <form action="{{ url('skill/'.$skill->id) }}" method="POST">
                                         {{ csrf_field() }}
@@ -96,4 +99,27 @@
         </div>
     @endif
 
+    @section('javascripts')
+      @parent
+        <script type="text/javascript">
+            $( document ).ready(function() {
+                //alert("ok");
+                $(".js-datepicker").datepicker({firstDay: 1,
+                                             dateFormat: "dd-mm-yy",
+                                            // minDate: 0,
+                                             beforeShowDay: $.datepicker.noWeekends,
+                                             closeText: 'Close',
+                                             prevText: 'Prev',
+                                             nextText: 'Next',
+                                             currentText: 'Today',
+//                                             monthNames: ['January', 'February', 'Mars', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+//                                             monthNamesShort: ['Jan.', 'Feb.', 'Mars', 'April', 'May', 'June', 'July', 'Aug.', 'Sept.', 'Oct.', 'Nov.', 'Dec.'],
+//                                             dayNames: ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'],
+//                                             dayNamesShort: ['Dim.', 'Lun.', 'Mar.', 'Mer.', 'Jeu.', 'Ven.', 'Sam.'],
+//                                             dayNamesMin: ['D', 'L', 'M', 'M', 'J', 'V', 'S'],
+                                             weekHeader: 'Sem.'});
+            });
+        </script>   
+    @endsection
+    
 @endsection
