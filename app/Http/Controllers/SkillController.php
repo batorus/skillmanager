@@ -37,7 +37,7 @@ class SkillController extends Controller
         ]);
         
         $user->skills()->create([
-               'date_recorded' => $request->date_recorded,
+               'date_recorded' => new \DateTime($request->date_recorded),
                'domain_id' => $request->domain,
                'level_id' => $request->level,
                'enabled' =>1
