@@ -3,12 +3,17 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
+use App\Repositories\SkillRepository;
+
 
 class ChartingController extends Controller
 {
-    public function __construct()
+    protected $skills;
+    
+     public function __construct(SkillRepository $skills)
     {
         $this->middleware('auth');
+        $this->skills = $skills;
     }
     
      public function indexAction(\App\User $user)
@@ -16,7 +21,8 @@ class ChartingController extends Controller
 
         return view('charts.index', 
                 [
-                    'skills' => $this->skills->forUser($user),
+                    'skills' => $this->skills->forUserAndDomain($user, 3),
+                    'user' => $user
                 ]);
     }
 }

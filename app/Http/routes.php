@@ -27,4 +27,4 @@ Route::post('/skill/{skill}', 'SkillController@destroyAction');
 
 Route::get('/users', 'UserController@indexAction');
 
-Route::get('/chart/{user}', 'ChartingController@indexAction');
+Route::get('/charts/{user}', 'ChartingController@indexAction');

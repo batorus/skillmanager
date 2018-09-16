@@ -57,7 +57,7 @@
  @if (count($skills) > 0)
  
         <div class="panel panel-default">
-            <a href='{{ url('skill/'.$user->id) }}'                                  
+            <a href='{{ url('charts/'.$user->id) }}'                                  
                class="btn btn-block btn-warning btn-sm" 
                style ="width:200px;color:#fff; margin-top:10px;" 
             >View charts for these skills</a>
