@@ -2,7 +2,18 @@
 
 @section('content')
 
+    <div class="panel panel-default">
+        
+        <a href='{{ url('skills/'.$user->id) }}'                                  
+           class="btn btn-block btn-warning btn-sm" 
+           style ="width:200px;color:#fff; margin-top:10px;" 
+        >Back to list of skills </a>
+    </div>
+
+    <div>&nbsp;</div>
+        
 <div class="table-responsive col-md-12" >
+    
     <div id="container" ></div>
 
 </div>
@@ -22,57 +33,32 @@
               //var  arrdates = [];
               var arr = [];
               var serie = [];
+              
                for(var entry in datas){
                   // console.log(entry); 
                    var dataCopy = datas[entry];
 
-//                   for(key in dataCopy){
-//                     console.log(key);
-////                       if(key == "start" || key == "end"){
-////                           // needs more specific method to manipulate date to your needs
-////                           dataCopy[key] = new Date(dataCopy[key])
-////                       }
-//                   }
-                  // arr[].push(dataCopy)
-
                 dates = [];
-                $(dataCopy).each(function (i, val) 
-                {//datas[0].year, datas[0].month - 1,  datas[0].day
-                    // console.log(val); 
-                     //console.log(skills[i].date_recorded); 
-                    dates.push([Date.UTC(val.year, val.month-1, val.day), val.level]);
-                             
+                $(dataCopy).each(function (i, val){
+                    dates.push([Date.UTC(val.year, val.month-1, val.day), val.level]);                            
                 })
-                
-                
+                               
                 serie.push({ 
                        "name" : entry,
                        "data"  : dates
                    });
-               // arr[entry] = dates;
+
             }
-       
-            for(key in arr){
-
-                    // console.log(arr[key]);
-//                       if(key == "start" || key == "end"){
-//                           // needs more specific method to manipulate date to your needs
-//                           dataCopy[key] = new Date(dataCopy[key])
-//                       }
-
-
-               
-        }
-        
+              
             Highcharts.chart('container', {
                         chart: {
                             type: 'spline'
                         },
                         title: {
-                            text: 'Denumire Domeniu aici'
+                            text: 'Domains and levels of IT Knowledge'
                         },
                         subtitle: {
-                            text: 'Descriere scurta'
+                            text: 'Display the evolution of skills'
                         },
                         xAxis: {
                             type: 'datetime',
@@ -95,7 +81,7 @@
                         },
                         tooltip: {
                             headerFormat: '<b>{series.name}</b><br>',
-                            pointFormat: '{point.x:%e. %b}: {point.y:.2f} m'
+                            pointFormat: 'Date: {point.x:%e.%b.%Y} | Level: {point.y}'
                         },
 
                         plotOptions: {
