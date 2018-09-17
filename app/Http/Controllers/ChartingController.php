@@ -20,7 +20,7 @@ class ChartingController extends Controller
     {
 
          
-         $data = $this->skills->forUserAndDomain($user, 3);
+         $data = $this->skills->forUserAndDomain($user);
          
          $datas = [];
          foreach($data as $d){
@@ -28,11 +28,11 @@ class ChartingController extends Controller
            $mon = date("m", strtotime($d->date_recorded)); 
            $day = date("d", strtotime($d->date_recorded)); 
            
-           $datas[] = array('year'=>$yr,
-                            'month'=>$mon,
-                            'day'=>$day,
-                            'level' => $d->level_id
-                           );
+           $datas[$d->namedomain][] = array('year'=>$yr,
+                                            'month'=>$mon,
+                                            'day'=>$day,
+                                            'level' => $d->level_id
+                                           );
          }
          //dd(json_encode($datas));
         // strtotime("11-09-2018");
@@ -49,7 +49,7 @@ class ChartingController extends Controller
 //        dd($mon);
         return view('charts.index', 
                 [
-                    'skills' => $this->skills->forUserAndDomain($user, 3),
+                    'skills' => $this->skills->forUserAndDomain($user),
                     'datas'  => json_encode($datas),
                     'user' => $user
                 ]);

@@ -1,7 +1,7 @@
 
 <ul class="sidebar-menu">
     <li class="active treeview">
-        <a href="{{url('users')}}">
+        <a href="#">
             <i class="fa fa-users"></i>
             <span>Skill management</span>
         </a>

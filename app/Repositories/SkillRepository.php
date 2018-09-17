@@ -30,8 +30,8 @@ class SkillRepository
 //                    ->orderBy('skills.created_at', 'asc')
 //                    ->get();
     }
-    
-    public function forUserAndDomain(User $user, $domainid)
+    //, $domainid
+    public function forUserAndDomain(User $user)
     {
         return $user->skills()
                     ->select('users.name as username','skills.*', 'domains.name as namedomain', 'levels.name as namelevel')
@@ -39,7 +39,7 @@ class SkillRepository
                     ->join('levels', 'skills.level_id', '=', 'levels.id')  
                     ->join('users', 'skills.user_id', '=', 'users.id')  
                     ->where('skills.enabled', 1)   
-                    ->where('skills.domain_id', $domainid)  
+                    //->where('skills.domain_id', $domainid)  
                     ->orderBy('skills.date_recorded', 'asc')
                     ->get();
         
