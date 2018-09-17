@@ -99,6 +99,13 @@
                                     <div>{{ $skill->date_recorded}}</div>
                                 </td>
                                 <td>
+
+                                    <a href="{{url('skilledit/'.$skill->id) }}" class="btn btn-warning" style="color:#fff">
+                                        <i class="fa fa-btn fa-edit"></i>Update
+                                    </a>  
+
+                                    <div>&nbsp;</div>
+                                    
                                      <form action="{{ url('skilldelete/'.$skill->id) }}" method="POST">
                                         {{ csrf_field() }}
 
@@ -106,7 +113,7 @@
                                         <button type="submit" id="delete-task-{{ $skill->id }}" class="btn btn-danger">
                                             <i class="fa fa-btn fa-trash"></i>Delete
                                         </button>
-                                    </form>
+                                    </form>                                                                                                    
                                 </td>
                             </tr>
                         @endforeach

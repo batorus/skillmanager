@@ -48,6 +48,40 @@ class SkillController extends Controller
         return redirect('/skills/'.$user->id);
     }
     
+    public function editAction(Request $request,\App\Skill $skill)
+    {
+        //dd(\App\Skill::where("user_id",$user->id)->first());
+           return view('skills.update', 
+                [
+                    'skill' =>  \App\Skill::where("id",$skill->id)->first(),
+                    "levels" => \App\Level::all(),
+                    "domains" =>  \App\Domain::all(),
+                    //"user"    => $user
+                ]);
+//        \App\Skill::where("id",$idskill)->update(['enabled' => 0]);
+
+        //return back()->withInput();
+    }
+    
+    public function updateAction(Request $request,\App\Skill $skill)
+    {
+        //dd($user);
+        //dd(\App\Skill::where("user_id",$user->id)->first());
+//           return view('skills.update', 
+//                [
+//                    'skill' =>  \App\Skill::where("user_id",$user->id)->first(),
+//                    "levels" => \App\Level::all(),
+//                    "domains" =>  \App\Domain::all(),
+//                    "user"    => $user
+//                ]);
+//        \App\Skill::where("id",$idskill)->update(['enabled' => 0]);
+        
+        \App\Skill::where("id",$skill->id)->update(['date_recorded' => new \DateTime($request->date_recorded),
+                                                        'domain_id' => $request->domain,
+                                                        'level_id' => $request->level,]);
+        return redirect('/skills/'.$skill->user_id);
+    }
+    
     public function destroyAction(Request $request, $idskill)
     {
    
