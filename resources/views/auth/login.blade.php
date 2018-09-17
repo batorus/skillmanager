@@ -1,11 +1,54 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+        <title>Welcome</title>
 
-@section('content')
-<div class="container">
+    <link href="{{asset('forall/bootstrap-4.1.2/dist/css/bootstrap.min.css')}}" rel="stylesheet" />
+
+    </head>
+    <body class="skin-blue">
+        
+    <div class="wrapper">    
+        
+     <div class="container">
+                <header class="main-header">
+                <!-- Logo -->
+                <a href="#" class="logo"><b> Skill manager Application</b></a>
+                <!-- Header Navbar: style can be found in header.less -->
+                <nav class="navbar navbar-static-top" role="navigation">
+                  
+                    <div class="navbar-custom-menu">
+                        <ul class="nav navbar-nav">
+                            <!-- Authentication Links -->
+                            @if (Auth::guest())
+
+                                <li><a href="{{ url('/register') }}">Register</a></li>
+                            @else
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                        {{ Auth::user()->name }} <span class="caret"></span>
+                                    </a>
+
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+                                    </ul>
+                                </li>
+                            @endif
+                        </ul>
+                    </div>                   
+                </nav>                             
+            </header>
+         
+    <hr/>    
+    
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Login</div>
+                <div class="panel-heading">Enter Credentials:</div>
+                <div class="panel-heading">&nbsp;</div>
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
                         {{ csrf_field() }}
@@ -63,4 +106,6 @@
         </div>
     </div>
 </div>
-@endsection
+ </div>       
+</body>
+</html>

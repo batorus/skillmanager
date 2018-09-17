@@ -17,7 +17,8 @@
                 <!-- Header Navbar: style can be found in header.less -->
                 <nav class="navbar navbar-static-top" role="navigation">
 
-                    <div class="collapse navbar-collapse" id="app-navbar-collapse">
+                   {{-- 
+                      <div class="collapse navbar-collapse" id="app-navbar-collapse">
                         <!-- Left Side Of Navbar -->
                         <ul class="nav navbar-nav">
                             <li><a href="{{ url('/home') }}">Home</a></li>
@@ -42,6 +43,7 @@
                             @endif
                         </ul>
                     </div>
+                    --}}
                     
                     <div class="navbar-custom-menu">
                         <ul class="nav navbar-nav">
