@@ -60,7 +60,7 @@
             <a href='{{ url('charts/'.$user->id) }}'                                  
                class="btn btn-block btn-warning btn-sm" 
                style ="width:200px;color:#fff; margin-top:10px;" 
-            >View charts for these skills</a>
+            >View the chart for these skills</a>
         </div>
         <div>&nbsp;</div>
         
@@ -99,7 +99,7 @@
                                     <div>{{ $skill->date_recorded}}</div>
                                 </td>
                                 <td>
-                                     <form action="{{ url('skill/'.$skill->id) }}" method="POST">
+                                     <form action="{{ url('skilldelete/'.$skill->id) }}" method="POST">
                                         {{ csrf_field() }}
 
 

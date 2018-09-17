@@ -22,7 +22,7 @@ Route::get('/home', 'HomeController@index');
 
 Route::get('/skills/{user}', 'SkillController@indexAction');
 Route::post('/skill/{user}', 'SkillController@storeAction');
-Route::post('/skill/{skill}', 'SkillController@destroyAction');
+Route::post('/skilldelete/{skill}', 'SkillController@destroyAction');
 
 
 Route::get('/users', 'UserController@indexAction');

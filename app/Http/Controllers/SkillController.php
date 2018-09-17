@@ -46,14 +46,15 @@ class SkillController extends Controller
         return redirect('/skills/'.$user->id);
     }
     
-    public function destroyAction(Request $request, \App\Skill $skill)
+    public function destroyAction(Request $request, $idskill)
     {
         //$skill->update(['enabled' => 0]);
         //dd($skill);
-        $skill->find(1)->update(['enabled' => 0]);
+       // $skill->find(1)->update(['enabled' => 0]);
         
-        
-        return redirect('/skills');
+        \App\Skill::where("id",$idskill)->update(['enabled' => 0]);
+       // return redirect('/skills');
+        return back()->withInput();
     }
     
 }

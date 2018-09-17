@@ -32,7 +32,7 @@
 
                                 <td>
                                   <a href='{{url('skills/'.$user->id) }}'>
-                                      Add skill
+                                      Add/View skill(s)
                                   </a>
                                 </td>
                             </tr>
