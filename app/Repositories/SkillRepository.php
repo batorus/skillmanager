@@ -39,7 +39,7 @@ class SkillRepository
                     ->join('levels', 'skills.level_id', '=', 'levels.id')  
                     ->join('users', 'skills.user_id', '=', 'users.id')  
                     ->where('skills.enabled', 1)   
-                    //->where('skills.domain_id', $domainid)  
+                    ->orderBy('skills.domain_id', "asc")  
                     ->orderBy('skills.date_recorded', 'asc')
                     ->get();
         

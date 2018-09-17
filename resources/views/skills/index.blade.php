@@ -14,7 +14,7 @@
                 
                 <label for="skill-date" class="col-sm-3 control-label">Date</label>
                 <div class="col-sm-3">
-                    <input type="text" name="date_recorded" id="skill-date" class="form-control js-datepicker">
+                    <input type="text" name="date_recorded" id="skill-date" class="form-control js-datepicker" value="{{old('date_recorded')}}">
                 </div>
                 
                 <div>&nbsp;</div>                              
@@ -23,7 +23,7 @@
                     <select name="domain" id="skill-domain" class="form-control">
                         <option value="0">-- Select a value --</option>
                         @foreach ($domains as $domain)
-                            <option value="{{$domain->id}}">{{$domain->name}}</option>
+                            <option value="{{$domain->id}}" @if(old('domain') == $domain->id) {{ 'selected' }} @endif  >{{$domain->name}}</option>
                         @endforeach
                     </select>
                 </div>
@@ -31,10 +31,10 @@
                 <div>&nbsp;</div>
                 <label for="skill-level" class="col-sm-3 control-label">Level</label>
                 <div class="col-sm-3">                
-                    <select name="level" id="skill-level" class="form-control">
+                    <select name="level" id="skill-level" class="form-control" >
                         <option value="0">-- Select a value --</option>                        
                         @foreach ($levels as $level)
-                            <option value="{{$level->id}}">{{$level->name}}</option>
+                            <option value="{{$level->id}}"  @if(old('level') == $level->id) {{ 'selected' }} @endif >{{$level->name}}</option>
                         @endforeach
                     </select>
                 </div>               

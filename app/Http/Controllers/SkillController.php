@@ -34,6 +34,8 @@ class SkillController extends Controller
 
         $this->validate($request, [
             'date_recorded' => 'required|max:255',
+            'domain' => 'required|not_in:0',
+            'level' => 'required|not_in:0'
         ]);
         
         $user->skills()->create([
@@ -48,12 +50,9 @@ class SkillController extends Controller
     
     public function destroyAction(Request $request, $idskill)
     {
-        //$skill->update(['enabled' => 0]);
-        //dd($skill);
-       // $skill->find(1)->update(['enabled' => 0]);
-        
+   
         \App\Skill::where("id",$idskill)->update(['enabled' => 0]);
-       // return redirect('/skills');
+
         return back()->withInput();
     }
     
