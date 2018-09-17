@@ -1,16 +1,16 @@
 
 <ul class="sidebar-menu">
     <li class="active treeview">
-        <a href="#">
+        <a href="{{url('users')}}">
             <i class="fa fa-users"></i>
             <span>Skill management</span>
         </a>
         <ul class="treeview-menu">
 
              <li class="">
-                <a href="#">
+                <a href="{{url('users')}}">
                   <i class="fa fa-book"></i>                       
-                    <span>Patients</span>
+                    <span>Users</span>
                     
                 </a>
             </li>    
