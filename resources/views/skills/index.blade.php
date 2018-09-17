@@ -59,8 +59,11 @@
         <div class="panel panel-default">
             <a href='{{ url('charts/'.$user->id) }}'                                  
                class="btn btn-block btn-warning btn-sm" 
-               style ="width:200px;color:#fff; margin-top:10px;" 
-            >View the chart for these skills</a>
+               style ="width:300px;color:#fff; margin-top:10px;" >
+                
+                View the evolution chart for these skills
+                
+            </a>
         </div>
         <div>&nbsp;</div>
         
@@ -75,6 +78,7 @@
 
                     <!-- Table Headings -->
                     <thead>
+                        <th>Skill Id</th>
                         <th>User name</th>
                         <th>Skill name</th>
                         <th>Skill level</th>    
@@ -86,6 +90,9 @@
                     <tbody>
                         @foreach ($skills as $skill)
                             <tr>
+                                <td class="table-text">
+                                    <div>{{ $skill->id}}</div>
+                                </td>                                
                                 <td class="table-text">
                                     <div>{{ $skill->username}}</div>
                                 </td>

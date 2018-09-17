@@ -76,9 +76,11 @@ class SkillController extends Controller
 //                ]);
 //        \App\Skill::where("id",$idskill)->update(['enabled' => 0]);
         
-        \App\Skill::where("id",$skill->id)->update(['date_recorded' => new \DateTime($request->date_recorded),
+        \App\Skill::where("id",$skill->id)->update([
+                                                    'date_recorded' => new \DateTime($request->date_recorded),
                                                     'domain_id' => $request->domain,
-                                                    'level_id' => $request->level,]);
+                                                    'level_id' => $request->level,
+                                                   ]);
         return redirect('/skills/'.$skill->user_id);
     }
     

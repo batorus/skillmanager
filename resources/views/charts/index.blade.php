@@ -26,16 +26,12 @@
                 //var skills = {!! json_encode($skills->toArray()) !!};
                 var datas = {!! $datas!!};
                 
-                //d = $.parseJSON(dates);
-               // console.log(datas);
-          
- 
-              //var  arrdates = [];
-              var arr = [];
-              var serie = [];
+
+            var arr = [];
+            var serie = [];
               
-               for(var entry in datas){
-                  // console.log(entry); 
+            for(var entry in datas){
+
                    var dataCopy = datas[entry];
 
                 dates = [];
@@ -76,7 +72,7 @@
                             },
                             min: 1,
                             max: 5,
-                            //categories: ["level 1", "level 2", "level 3", "level 4", "level 5"],
+
                             allowDecimals: false
                         },
                         tooltip: {
@@ -93,22 +89,8 @@
                         },
 
                         colors: ['#6CF', '#39F', '#06C', '#036', '#000'],
-
-                        // Define the data points. All series have a dummy year
-                        // of 1970/71 in order to be compared on the same x axis. Note
-                        // that in JavaScript, months start at 0 for January, 1 for February etc.
-
+                        
                         series: serie
-//                                [{
-//                            name: key,
-//                            data: arr[key]
-//                        }
-//                        ,
-//                        {
-//                            name: "Evolutie skill UNIX",
-//                            data: dates
-//                        }
-//                        ]
 
             });
 

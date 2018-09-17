@@ -13,10 +13,9 @@
         <div class="wrapper">
             <header class="main-header">
                 <!-- Logo -->
-                <a href="#" class="logo"><b> homepage title </b></a>
+                <a href="#" class="logo"><b> Skill manager App</b></a>
                 <!-- Header Navbar: style can be found in header.less -->
                 <nav class="navbar navbar-static-top" role="navigation">
-
 
                     <div class="collapse navbar-collapse" id="app-navbar-collapse">
                         <!-- Left Side Of Navbar -->
@@ -44,7 +43,7 @@
                         </ul>
                     </div>
                     
-                       <div class="navbar-custom-menu">
+                    <div class="navbar-custom-menu">
                         <ul class="nav navbar-nav">
                             <!-- Authentication Links -->
                             @if (Auth::guest())
@@ -62,13 +61,10 @@
                                 </li>
                             @endif
                         </ul>
-                    </div>
-                    
- 
+                    </div>                   
                 </nav>                             
             </header>
-            
-
+           @if (Auth::user())
             <!-- Left side column. contains the logo and sidebar -->
             <aside class="main-sidebar">
                 <!-- sidebar: style can be found in sidebar.less -->
@@ -77,23 +73,19 @@
                     <div class="user-panel">
 
                     </div>
-
-                
-               @yield('menu')
-
-            </section>
+              
+                    @yield('menu')
+                 </section>
             <!-- /.sidebar -->
             </aside>
+         @endif
+            <div class="content-wrapper">
+                <section class="content">
+                   @yield('content')
+                </section>
+            </div>	
 
-          
-        <div class="content-wrapper">
-            <section class="content">
-
-            @yield('content')
-            </section>
-        </div>	
-
-    @include('layouts.footer')
-</div><!-- ./wrapper -->
+         @include('layouts.footer')
+   </div><!-- ./wrapper -->
 </body>
 </html>
