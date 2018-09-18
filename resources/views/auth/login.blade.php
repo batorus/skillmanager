@@ -1,46 +1,32 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
-        <title>Welcome</title>
+@extends("layouts.auth")
 
-    <link href="{{asset('forall/bootstrap-4.1.2/dist/css/bootstrap.min.css')}}" rel="stylesheet" />
+@section('content')     
+    <header class="main-header">       
+        <a href="#" class="logo"><b> Skill manager Application</b></a>
 
-    </head>
-    <body class="skin-blue">
-        
-    <div class="wrapper">    
-        
-     <div class="container">
-                <header class="main-header">
-                <!-- Logo -->
-                <a href="#" class="logo"><b> Skill manager Application</b></a>
-                <!-- Header Navbar: style can be found in header.less -->
-                <nav class="navbar navbar-static-top" role="navigation">
-                  
-                    <div class="navbar-custom-menu">
-                        <ul class="nav navbar-nav">
-                            <!-- Authentication Links -->
-                            @if (Auth::guest())
+        <nav class="navbar navbar-static-top" role="navigation">
 
-                                <li><a href="{{ url('/register') }}">Register</a></li>
-                            @else
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                        {{ Auth::user()->name }} <span class="caret"></span>
-                                    </a>
+            <div class="navbar-custom-menu">
+                <ul class="nav navbar-nav">
+                    <!-- Authentication Links -->
+                    @if (Auth::guest())
 
-                                    <ul class="dropdown-menu" role="menu">
-                                        <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
-                                    </ul>
-                                </li>
-                            @endif
-                        </ul>
-                    </div>                   
-                </nav>                             
-            </header>
+                        <li><a href="{{ url('/register') }}">Register</a></li>
+                    @else
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                {{ Auth::user()->name }} <span class="caret"></span>
+                            </a>
+
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+                            </ul>
+                        </li>
+                    @endif
+                </ul>
+            </div>                   
+        </nav>                             
+    </header>
          
     <hr/>    
     
@@ -105,7 +91,4 @@
             </div>
         </div>
     </div>
-</div>
- </div>       
-</body>
-</html>
+@endsection
