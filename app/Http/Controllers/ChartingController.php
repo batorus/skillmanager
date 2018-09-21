@@ -29,9 +29,9 @@ class ChartingController extends Controller
            $day = date("d", strtotime($d->date_recorded)); 
            
            $datas[$d->namedomain][] = ['year'=>$yr,
-                                            'month'=>$mon,
-                                            'day'=>$day,
-                                            'level' => $d->level_id
+                                       'month'=>$mon,
+                                       'day'=>$day,
+                                       'level' => $d->level_id
                                       ];
          }
 
@@ -42,6 +42,5 @@ class ChartingController extends Controller
                     'user' => $user
                 ]);
         
-        //return response()->json($this->skills->forUserAndDomain($user, 3));
     }
 }

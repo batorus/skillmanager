@@ -19,14 +19,12 @@ class SkillController extends Controller
     
     public function indexAction(Request $request, \App\User $user)
     {
-        //dd($this->skills->forUser($user));
-        return view('skills.index', 
-                [
-                    'skills' => $this->skills->forUser($user),
-                    "levels" => \App\Level::all(),
-                    "domains" =>  \App\Domain::all(),
-                    "user"    => $user
-                ]);
+        return view('skills.index', [
+                                        'skills' => $this->skills->forUser($user),
+                                        "levels" => \App\Level::all(),
+                                        "domains" =>  \App\Domain::all(),
+                                        "user"    => $user
+                                    ]);
     }
     
     public function storeAction(Request $request, \App\User $user)
@@ -50,7 +48,6 @@ class SkillController extends Controller
     
     public function editAction(Request $request,\App\Skill $skill)
     {
-        //dd(\App\Skill::where("user_id",$user->id)->first());
            return view('skills.update', 
                 [
                     'skill' =>  \App\Skill::where("id",$skill->id)->first(),
@@ -58,24 +55,10 @@ class SkillController extends Controller
                     "domains" =>  \App\Domain::all(),
                     //"user"    => $user
                 ]);
-//        \App\Skill::where("id",$idskill)->update(['enabled' => 0]);
-
-        //return back()->withInput();
     }
     
     public function updateAction(Request $request,\App\Skill $skill)
-    {
-        //dd($user);
-        //dd(\App\Skill::where("user_id",$user->id)->first());
-//           return view('skills.update', 
-//                [
-//                    'skill' =>  \App\Skill::where("user_id",$user->id)->first(),
-//                    "levels" => \App\Level::all(),
-//                    "domains" =>  \App\Domain::all(),
-//                    "user"    => $user
-//                ]);
-//        \App\Skill::where("id",$idskill)->update(['enabled' => 0]);
-        
+    {    
         \App\Skill::where("id",$skill->id)->update([
                                                     'date_recorded' => new \DateTime($request->date_recorded),
                                                     'domain_id' => $request->domain,
