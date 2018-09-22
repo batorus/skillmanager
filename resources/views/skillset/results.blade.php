@@ -49,7 +49,7 @@
                                     <div>{{ $skill->namelevel }}</div>
                                 </td>
                                 <td class="table-text">
-                                    <div>{{ $skill->date_recorded}}</div>
+                                    <div>{{ (new \DateTime($skill->date_recorded))->format("Y-m-d")}}</div>
                                 </td>
                                 
                                 {{--<td>
