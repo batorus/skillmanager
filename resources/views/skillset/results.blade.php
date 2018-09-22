@@ -76,6 +76,8 @@
                 </table>
             </div>
         </div>
+    @else
+        <div class="alert alert-danger col-md-3 text-center" >No results were found!</div>
     @endif
   
 @endsection
