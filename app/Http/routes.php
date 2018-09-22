@@ -33,3 +33,4 @@ Route::get('/charts/{user}', 'ChartingController@indexAction');
 
 Route::get('/skillset', 'SkillsetController@indexAction');
 Route::post('/searchskillset', 'SkillsetController@searchAction');
+Route::get('/searchskillset', 'SkillsetController@indexAction');
