@@ -19,8 +19,8 @@ class SkillRepository
                     ->join('levels', 'skills.level_id', '=', 'levels.id')  
                     ->join('users', 'skills.user_id', '=', 'users.id')  
                     ->where('skills.enabled', 1)                
-                    ->orderBy('skills.created_at', 'asc')
-                    ->get();
+                    ->orderBy('skills.created_at', 'asc')                
+                    ->paginate(5);
         
 //        return  DB::table('skills')
 //                    ->select('skills.*', 'domains.name as namedomain', 'levels.name as namelevel')

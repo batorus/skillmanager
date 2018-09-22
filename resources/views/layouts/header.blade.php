@@ -23,11 +23,4 @@
     <script type="text/javascript" src="{{ asset('forall/bootstrap-4.1.2/dist/js/bootstrap.min.js') }}"></script>    
     <script type="text/javascript" src="{{ asset('forall/AdminLTE-2.4.5/dist/js/adminlte.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('forall/jquery-ui-1.12.1/jquery-ui.min.js') }}"></script>
-
-    <script type="text/javascript" src="{{asset('forall/chartjs/Highcharts-6.1.3/code/highcharts.js')}}"></script>    
-   
-    <script type="text/javascript" src="{{asset('forall/chartjs/Highcharts-6.1.3/code/modules/series-label.js')}}"></script>
-    <script type="text/javascript" src="{{asset('forall/chartjs/Highcharts-6.1.3/code/modules/exporting.js')}}"></script>
-    <script type="text/javascript" src="{{asset('forall/chartjs/Highcharts-6.1.3/code/modules/export-data.js')}}"></script>
-
 @show

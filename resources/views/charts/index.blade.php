@@ -20,6 +20,11 @@
 
     @section('javascripts')
       @parent
+    <script type="text/javascript" src="{{asset('forall/chartjs/Highcharts-6.1.3/code/highcharts.js')}}"></script>    
+    <script type="text/javascript" src="{{asset('forall/chartjs/Highcharts-6.1.3/code/modules/series-label.js')}}"></script>
+    <script type="text/javascript" src="{{asset('forall/chartjs/Highcharts-6.1.3/code/modules/exporting.js')}}"></script>
+    <script type="text/javascript" src="{{asset('forall/chartjs/Highcharts-6.1.3/code/modules/export-data.js')}}"></script>      
+      
         <script type="text/javascript">
         $( document ).ready(function() {
 
@@ -100,3 +105,6 @@
     @endsection
     
 @endsection
+
+
+

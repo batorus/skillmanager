@@ -125,7 +125,10 @@
                         @endforeach
                     </tbody>
                 </table>
+                
             </div>
+            {{-- $skills->links()--}}
+            @include('pagination.default', ['paginator' => $skills])
         </div>
     @endif
 
