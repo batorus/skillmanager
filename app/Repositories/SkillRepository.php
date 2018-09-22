@@ -21,16 +21,9 @@ class SkillRepository
                     ->where('skills.enabled', 1)                
                     ->orderBy('skills.created_at', 'asc')                
                     ->paginate(5);
-        
-//        return  DB::table('skills')
-//                    ->select('skills.*', 'domains.name as namedomain', 'levels.name as namelevel')
-//                    ->join('domains', 'skills.domain_id', '=', 'domains.id')
-//                    ->join('levels', 'skills.level_id', '=', 'levels.id')  
-//                    ->where('skills.enabled', 1)                
-//                    ->orderBy('skills.created_at', 'asc')
-//                    ->get();
+
     }
-    //, $domainid
+
     public function forUserAndDomain(User $user)
     {
         return $user->skills()
