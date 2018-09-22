@@ -15,6 +15,14 @@
                 </a>
             </li>    
             
+            <li class="">
+                <a href="{{url('skillset')}}">
+                  <i class="fa fa-book"></i>                       
+                    <span>Search Skillsets</span>
+                    
+                </a>
+            </li>             
+            
         </ul>
     </li>
 </ul>

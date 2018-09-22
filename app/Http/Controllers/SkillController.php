@@ -11,7 +11,7 @@ class SkillController extends Controller
     
     protected $skills;
     
-     public function __construct(SkillRepository $skills)
+    public function __construct(SkillRepository $skills)
     {
         $this->middleware('auth');
         $this->skills = $skills;

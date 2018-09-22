@@ -6,7 +6,6 @@
 
         @include('common.errors')
 
-
         <form action="{{ url('skill/'.$user->id) }}" method="POST" class="form-horizontal">
             {{ csrf_field() }}
 

@@ -3,7 +3,7 @@
 namespace App\Repositories;
 
 use App\User;
-
+use DB;
 class SkillRepository
 {
     /**
@@ -44,6 +44,21 @@ class SkillRepository
                     ->get();
         
 
+    }
+    
+    public function searchSkillset($startDate, $endDate, $domain, $level)
+    {
+        return  DB::table('skills')
+                    ->select('users.name as username', 'skills.*', 'domains.name as namedomain', 'levels.name as namelevel')
+                    ->join('domains', 'skills.domain_id', '=', 'domains.id')
+                    ->join('levels', 'skills.level_id', '=', 'levels.id')  
+                    ->join('users', 'skills.user_id', '=', 'users.id') 
+                    ->where('skills.enabled', 1)  
+                    ->whereBetween('skills.date_recorded', [$startDate, $endDate])
+                    ->where('skills.domain_id', $domain) 
+                    ->where('skills.level_id', $level) 
+                    ->orderBy('skills.date_recorded', 'asc')
+                    ->get();
     }
     
 }

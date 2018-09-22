@@ -29,3 +29,7 @@ Route::post('/skillupdate/{skill}', 'SkillController@updateAction');
 Route::get('/users', 'UserController@indexAction');
 
 Route::get('/charts/{user}', 'ChartingController@indexAction');
+
+
+Route::get('/skillset', 'SkillsetController@indexAction');
+Route::post('/searchskillset', 'SkillsetController@searchAction');
