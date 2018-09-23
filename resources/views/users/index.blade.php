@@ -2,6 +2,12 @@
 
 @section('content')
 
+    @if(session()->get('success'))
+       <div class="alert alert-info">
+         {{ session()->get('success') }}  
+       </div><br />
+    @endif
+    
  @if (count($users) > 0)
         <div class="panel panel-default">
             <div class="panel-heading">
@@ -42,7 +48,5 @@
             </div>
         </div>
     @endif
-
-
-    
+  
 @endsection
