@@ -14,7 +14,13 @@
                     
                 </a>
             </li>    
-            
+             <li class="">
+                <a href="{{url('domains')}}">
+                  <i class="fa fa-book"></i>                       
+                    <span>Domains</span>
+                    
+                </a>
+            </li>              
             <li class="">
                 <a href="{{url('skillset')}}">
                   <i class="fa fa-book"></i>                       

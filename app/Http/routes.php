@@ -36,6 +36,23 @@ Route::group(['prefix' => 'users'], function () {
     Route::post('/{user}/delete', 'UserController@deleteAction')->name('users.delete');
 });
 
+Route::group(['prefix' => 'domains'], function () {
+    //List users
+    Route::get('/', 'DomainController@indexAction')->name('domains.index');
+
+    //create User
+    Route::get('/new', 'DomainController@newAction')->name('domains.new');
+    Route::post('/create', 'DomainController@createAction')->name('domains.create');
+    //Route::get('users/create', 'UserController@indexAction');
+
+    //Edit User
+    Route::get('/{domain}/edit', 'DomainController@editAction')->name('domains.edit');
+    Route::post('/{domain}/update', 'DomainController@updateAction')->name('domains.update');
+
+    //Delete User
+    Route::post('/{domain}/delete', 'DomainController@deleteAction')->name('domains.delete');
+});
+
 
 
 Route::get('/skills/{user}', 'SkillController@indexAction');

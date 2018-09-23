@@ -8,19 +8,18 @@
        </div><br />
     @endif
     
- @if (count($users) > 0)
+ @if (count($domains) > 0)
         <div class="panel panel-default">
             
             <div class="col col-sm-2">
-                <a href="{{route('users.new')}}" class="btn btn-primary" style="color:#fff">
+                <a href="{{route('domains.new')}}" class="btn btn-primary" style="color:#fff">
                     <i class="fa fa-btn fa-plus"></i> Add new
                 </a> 
             </div>            
-            <hr/>            
-            
+            <hr/>
             
             <div class="panel-heading">
-                List of users: 
+                List of domains: 
             </div>
 
             <div class="panel-body">
@@ -28,45 +27,42 @@
 
                     <!-- Table Headings -->
                     <thead>
-                        <th>User name</th>
-                        <th>User email</th>    
+                        <th>Id</th> 
+                        <th>Domain name</th> 
                         <th>Actions</th>                           
                         <th>&nbsp;</th>
                     </thead>
 
                     <!-- Table Body -->
                     <tbody>
-                        @foreach ($users as $user)
+                        @foreach ($domains as $domain)
                             <tr>
+                                <td class="table-text">
+                                    <div>{{$domain->id}}</div>
+                                </td>
+                                
+                                <td class="table-text">
+                                    <div>{{$domain->name}}</div>
+                                </td>
 
-                                <td class="table-text">
-                                    <div>{{ $user->name}}</div>
-                                </td>
-                                <td class="table-text">
-                                    <div>{{ $user->email}}</div>
-                                </td>
                                 <td>
                                   <div class="container">    
                                     <div class="row">
                                         <div class="col col-sm-2">
-                                            <a href="{{route('users.edit', $user->id)}}" class="btn btn-warning" style="color:#fff">
+                                            <a href="{{route('domains.edit', $domain->id)}}" class="btn btn-warning" style="color:#fff">
                                                 <i class="fa fa-btn fa-edit"></i>Update
                                             </a> 
                                         </div>
                                         <div class="col col-sm-2">                             
-                                             <form action="{{route('users.delete', $user->id)}}" method="POST">
+                                             <form action="{{route('domains.delete', $domain->id)}}" method="POST">
                                                 {{ csrf_field() }}
 
-                                                <button type="submit" id="delete-user-{{ $user->id }}" class="btn btn-danger" style="color:#fff">
+                                                <button type="submit" id="delete-user-{{ $domain->id }}" class="btn btn-danger" style="color:#fff">
                                                     <i class="fa fa-btn fa-trash"></i>Delete
                                                 </button>
                                             </form> 
                                         </div>                                    
-                                        <div class="col col-sm-2">                                         
-                                            <a href='{{url('skills/'.$user->id) }}' class="btn btn-primary" style="color:#fff">
-                                               <i class="fa fa-btn fa-plus"></i> Add/View skill(s)
-                                            </a>
-                                        </div>  
+
                                    </div>        
                                 </div>                                       
                                 </td>
@@ -75,7 +71,7 @@
                     </tbody>
                 </table>
             </div>
-           @include('pagination.default', ['paginator' => $users])
+           @include('pagination.default', ['paginator' => $domains])
         </div>
     @endif
   
