@@ -17,9 +17,7 @@ class ChartingController extends Controller
     }
     
      public function indexAction(\App\User $user)
-    {
-
-         
+    {        
          $data = $this->skills->forUserAndDomain($user);
          
          $datas = [];
@@ -28,7 +26,8 @@ class ChartingController extends Controller
            $mon = date("m", strtotime($d->date_recorded)); 
            $day = date("d", strtotime($d->date_recorded)); 
            
-           $datas[$d->namedomain][] = ['year'=>$yr,
+           $datas[$d->namedomain][] = [
+                                       'year'=>$yr,
                                        'month'=>$mon,
                                        'day'=>$day,
                                        'level' => $d->level_id

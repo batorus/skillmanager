@@ -45,6 +45,5 @@ class SkillsetController extends Controller
                                     ]);
 
     }
-    
-    
+     
 }

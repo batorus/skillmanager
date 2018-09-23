@@ -29,7 +29,6 @@ class SkillController extends Controller
     
     public function storeAction(Request $request, \App\User $user)
     {
-
         $this->validate($request, [
             'date_recorded' => 'required|max:255',
             'domain' => 'required|not_in:0',
@@ -50,7 +49,7 @@ class SkillController extends Controller
     {
            return view('skills.update', 
                 [
-                    'skill' =>  \App\Skill::where("id",$skill->id)->first(),
+                    'skill' =>  \App\Skill::where("id", $skill->id)->first(),
                     "levels" => \App\Level::all(),
                     "domains" =>  \App\Domain::all(),
                     //"user"    => $user
@@ -59,11 +58,12 @@ class SkillController extends Controller
     
     public function updateAction(Request $request,\App\Skill $skill)
     {    
-        \App\Skill::where("id",$skill->id)->update([
+        \App\Skill::where("id", $skill->id)->update([
                                                     'date_recorded' => new \DateTime($request->date_recorded),
                                                     'domain_id' => $request->domain,
                                                     'level_id' => $request->level,
                                                    ]);
+        
         return redirect('/skills/'.$skill->user_id);
     }
     
