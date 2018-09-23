@@ -22,6 +22,7 @@ Route::get('/home', 'HomeController@index');
 //List users
 Route::get('users', 'UserController@indexAction')->name('users.index');
 
+##### START USER
 //create User
 Route::get('users/new', 'UserController@newAction')->name('users.new');
 Route::post('users/create', 'UserController@createAction')->name('users.create');
@@ -30,6 +31,10 @@ Route::post('users/create', 'UserController@createAction')->name('users.create')
 //Edit User
 Route::get('users/{user}/edit', 'UserController@editAction')->name('users.edit');
 Route::post('users/{user}/update', 'UserController@updateAction')->name('users.update');
+
+//Delete User
+Route::post('users/{user}/delete', 'SkillController@deleteAction')->name('user.delete');
+##### END USER
 
 Route::get('/skills/{user}', 'SkillController@indexAction');
 Route::post('/skill/{user}', 'SkillController@storeAction');

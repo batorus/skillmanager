@@ -13,7 +13,7 @@ class UserController extends Controller
     }
     
     
-    public function indexAction(Request $request)
+    public function indexAction()
     {
 
         return view('users.index', 
@@ -70,7 +70,6 @@ class UserController extends Controller
     public function updateAction(Request $request, \App\User $user)
     {
         
-
        $validator = Validator::make($request->all(), [
                         'name'=>'required',
                         'email'=> 'required|email',
@@ -79,9 +78,9 @@ class UserController extends Controller
 
         if ($validator->fails()) {
 
-            return redirect('users/'.$user->id.'/edit')
-                        ->withErrors($validator)
-                        ->withInput();           
+            return redirect()->route('users.edit', $user->id)
+                             ->withErrors($validator)
+                             ->withInput();           
         }      
 
       //$user = \App\User::find($id);
@@ -93,23 +92,15 @@ class UserController extends Controller
            $user->save();
         }
         catch(\Illuminate\Database\QueryException $qe){
-           return redirect('users/'.$user->id.'/update')->with('error', "SQL error!");
+           return redirect()->route('users.edit', $user->id)->with('error', "SQL error!");
         }
 
         return redirect('users')->with('success', 'User: '.$user->name.' has been updated!');
     }
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return User
-     */
-//    protected function create(array $data)
-//    {
-//        return User::create([
-//            'name' => $data['name'],
-//            'email' => $data['email'],
-//            'password' => bcrypt($data['password']),
-//        ]);
-//    }
+    
+    public function deleteAction( \App\User $user)
+    {
+        echo "Soft delete user here:".$user->name;die();
+    }
+
 }
