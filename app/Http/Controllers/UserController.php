@@ -101,7 +101,8 @@ class UserController extends Controller
     
     public function deleteAction( \App\User $user)
     {
-        echo "Soft delete user here:".$user->name;die();
+        //echo "Soft delete user here:".$user->name;die();
+        return redirect('users');
     }
 
 }
