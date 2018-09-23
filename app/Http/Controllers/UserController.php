@@ -83,7 +83,6 @@ class UserController extends Controller
                              ->withInput();           
         }      
 
-      //$user = \App\User::find($id);
       $user->name = $request->get('name');
       $user->email = $request->get('email');
       $user->password = bcrypt($request->get('password'));
@@ -100,7 +99,7 @@ class UserController extends Controller
     
     public function deleteAction( \App\User $user)
     {
-        echo "Soft delete user here:".$user->name;die();
+        echo "Soft delete user here:".$user->name;die();return redirect('users');
     }
 
 }

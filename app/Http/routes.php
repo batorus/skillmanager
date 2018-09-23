@@ -33,7 +33,7 @@ Route::group(['prefix' => 'users'], function () {
     Route::post('/{user}/update', 'UserController@updateAction')->name('users.update');
 
     //Delete User
-    Route::post('/{user}/delete', 'SkillController@deleteAction')->name('users.delete');
+    Route::post('/{user}/delete', 'UserController@deleteAction')->name('users.delete');
 });
 
 

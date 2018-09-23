@@ -116,7 +116,7 @@
                                         {{ csrf_field() }}
 
 
-                                        <button type="submit" id="delete-task-{{ $skill->id }}" class="btn btn-danger">
+                                        <button type="submit" id="delete-skill-{{ $skill->id }}" class="btn btn-danger">
                                             <i class="fa fa-btn fa-trash"></i>Delete
                                         </button>
                                     </form>                                                                                                    
