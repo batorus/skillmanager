@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use Validator;
+use DB;
 
 class UserController extends Controller
 {
@@ -18,7 +19,8 @@ class UserController extends Controller
 
         return view('users.index', 
                 [
-                    "users" => \App\User::all(),
+                    //"users" => \App\User::all(),
+                    "users" => DB::table('users')->paginate(5),
                 ]);
     }
     

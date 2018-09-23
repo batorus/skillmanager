@@ -66,6 +66,7 @@
                     </tbody>
                 </table>
             </div>
+           @include('pagination.default', ['paginator' => $users])
         </div>
     @endif
   
