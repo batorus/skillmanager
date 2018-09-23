@@ -19,22 +19,24 @@ Route::auth();
 
 Route::get('/home', 'HomeController@index');
 
-//List users
-Route::get('users', 'UserController@indexAction')->name('users.index');
+Route::group(['prefix' => 'users'], function () {
+    //List users
+    Route::get('/', 'UserController@indexAction')->name('users.index');
 
-##### START USER
-//create User
-Route::get('users/new', 'UserController@newAction')->name('users.new');
-Route::post('users/create', 'UserController@createAction')->name('users.create');
-//Route::get('users/create', 'UserController@indexAction');
+    //create User
+    Route::get('/new', 'UserController@newAction')->name('users.new');
+    Route::post('/create', 'UserController@createAction')->name('users.create');
+    //Route::get('users/create', 'UserController@indexAction');
 
-//Edit User
-Route::get('users/{user}/edit', 'UserController@editAction')->name('users.edit');
-Route::post('users/{user}/update', 'UserController@updateAction')->name('users.update');
+    //Edit User
+    Route::get('/{user}/edit', 'UserController@editAction')->name('users.edit');
+    Route::post('/{user}/update', 'UserController@updateAction')->name('users.update');
 
-//Delete User
-Route::post('users/{user}/delete', 'SkillController@deleteAction')->name('user.delete');
-##### END USER
+    //Delete User
+    Route::post('/{user}/delete', 'SkillController@deleteAction')->name('users.delete');
+});
+
+
 
 Route::get('/skills/{user}', 'SkillController@indexAction');
 Route::post('/skill/{user}', 'SkillController@storeAction');
